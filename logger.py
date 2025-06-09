@@ -11,3 +11,10 @@ def long_chat(session_id:str,query:str,response:str,is_crisis:bool):
         writer = csv.writer(csvfile)
         if not file_exist:
             writer.writerow(["timestamp","session_id","query","response","crisis_flag"])
+        writer.writerow([
+            datetime.now().isoformat(),
+            session_id,
+            query,
+            response,
+            str(is_crisis)
+        ])
